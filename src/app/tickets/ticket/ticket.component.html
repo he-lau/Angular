@@ -5,4 +5,11 @@
   <i class="far fa-user"></i> {{ticket.student}}
   <i class=""></i> {{ticket.major}}
 
+  <ng-container *ngIf="ticket.major === 'SI'">
+    <i class="fas fa-laptop-code"></i> {{ticket.major}}
+  </ng-container>
+  <ng-container *ngIf="ticket.major === 'GE'">
+    <i class="fas fa-globe-europe"></i> {{ticket.major}}
+  </ng-container>  
+
 </div>
