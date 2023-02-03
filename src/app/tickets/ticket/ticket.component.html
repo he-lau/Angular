@@ -3,7 +3,6 @@
   <h3>Titre : {{ticket.title}}</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}
-  <i class=""></i> {{ticket.major}}
 
   <ng-container *ngIf="ticket.major === 'SI'">
     <i class="fas fa-laptop-code"></i> {{ticket.major}}
