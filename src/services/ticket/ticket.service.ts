@@ -29,4 +29,17 @@ export class TicketService {
      this.ticketList.push(ticket);
      this.tickets$.next(this.ticketList);
   }
+
+  deleteTicket(ticket:Ticket) {      
+
+    this.ticketList.forEach((element,index)=>{
+      if(element==ticket) this.ticketList.splice(index,1);
+   });
+   
+    this.tickets$.next(this.ticketList);    
+  }
+
+  a() {
+    
+  }
 }

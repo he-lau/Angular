@@ -22,4 +22,13 @@ export class TicketListComponent implements OnInit {
     console.log('event received from child:', hasBeenSelected);
   }
 
+
+deleteTicket(ticket: Ticket) {
+  const index = this.ticketList.indexOf(ticket);
+  if (index > -1) {
+    this.ticketList.splice(index, 1);
+  }
+}
+
+
 }
