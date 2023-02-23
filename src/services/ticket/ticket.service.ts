@@ -39,7 +39,5 @@ export class TicketService {
     this.tickets$.next(this.ticketList);    
   }
 
-  a() {
-    
-  }
+
 }
