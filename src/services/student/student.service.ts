@@ -1,42 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Student } from '../../models/student';
-import { STUDENTS_MOCKED } from '../../mocks/students.mock';
-import { BehaviorSubject } from 'rxjs/index';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Student} from '../../models/student';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  private studentList: Student[] = STUDENTS_MOCKED;
-
-  public students$: BehaviorSubject<Student[]> = new BehaviorSubject(this.studentList);
-
-  public studentUrl: string = "https://api.myjson.com/bins/ck44c";
-
+  private url = 'https://api.myjson.com/bins/ck44c';
+  public students$: BehaviorSubject<Student[]>;
+  private listStudent: Student[];
 
   constructor(private http: HttpClient) {
   }
 
-  //getStudents(): BehaviorSubject<Student[]> {
-  //  return this.http.get<Student[]>(this.studentUrl);
-  //}
-
-  addStudent(student: Student) {
-    var addList = this.studentList;
-    addList.push(student);
-    this.studentList = addList;
-    this.students$.next(addList);
-
-  }
-
-  deleteStudent(student: Student) {
-    var listUpdate = this.studentList.filter(function stud(studs: Student) {
-      return studs != student;
+  getStudent() {
+    this.http.get<Student[]>(this.url).subscribe(value => {
+      this.listStudent = value;
+      this.students$.next(this.listStudent);
     });
-    this.studentList = listUpdate;
-    this.students$.next(listUpdate);
   }
+
 }
