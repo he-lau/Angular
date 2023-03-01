@@ -14,7 +14,6 @@ export class TicketComponent implements OnInit {
    */
   @Input()
   ticket: Ticket;
-
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()

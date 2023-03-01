@@ -5,7 +5,7 @@
       <!--
       <app-ticket [ticket]="ticket" (ticketHasBeenSelected)="ticketHasBeenSelected($event)"></app-ticket>      
       -->
-      <app-ticket [ticket]="ticket" (ticketHasBeenDeleted)="deleteTicket($event)"></app-ticket>
+      <app-ticket [ticket]="ticket" (ticketHasBeenDeleted)="onDeleteTicket($event)" (ticketHasBeenSelected)="ticketHasBeenSelected($event)"></app-ticket>
   </div>
 </div>
 
