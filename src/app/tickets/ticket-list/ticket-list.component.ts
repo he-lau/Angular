@@ -9,7 +9,9 @@ import { Ticket } from '../../../models/ticket';
 })
 export class TicketListComponent implements OnInit {
 
+  // liste des tickets branché à l'observable
   public ticketList: Ticket[] = [];
+  // etat des tciket affichés dans ticket-list
   public displayTicketArchived: boolean
 
   constructor(public ticketService: TicketService) {
@@ -26,12 +28,21 @@ export class TicketListComponent implements OnInit {
 
   ticketHasBeenDeleted(ticketHasBeenDeleted: Ticket) {
   this.ticketService.deleteTicket(ticketHasBeenDeleted);
-  /*
-  const index = this.ticketList.indexOf(ticket);
-  if (index > -1) {
-    this.ticketList.splice(index, 1);
-  }*/
 }
+
+  ticketHasBeenArchived(ticketHasBeenArchived: Ticket) {
+    this.ticketService.archiveTicket(ticketHasBeenArchived);
+  }
+
+  onArchivedTicketListChange(element) {
+    this.displayTicketArchived = !this.displayTicketArchived;
+    if (this.displayTicketArchived) {
+      element.textContent = "Hide archived ticket";
+    } else {
+      element.textContent = "Show archived ticket";
+    }
+    console.log("Archived: ", this.displayTicketArchived);
+  }
 
 
 }

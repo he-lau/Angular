@@ -38,6 +38,8 @@ export class TicketService {
   }
 
   archiveTicket(ticket: Ticket) {
+    console.log("AAAAAA");
+    
     this.ticketList.forEach((element, index)=>{      
       if(element == ticket) {
         // maj statut ticket

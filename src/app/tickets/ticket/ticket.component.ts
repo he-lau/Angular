@@ -15,10 +15,13 @@ export class TicketComponent implements OnInit {
   @Input()
   ticket: Ticket;
 
+  // envoie au parent (ticket-list)
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()
   ticketHasBeenDeleted : EventEmitter<Ticket> = new EventEmitter<Ticket>();
+  @Output()
+  ticketHasBeenArchived : EventEmitter<Ticket> = new EventEmitter<Ticket>();
 
   constructor() {
   }
@@ -35,6 +38,11 @@ export class TicketComponent implements OnInit {
   onDeleteTicket() {
     console.log('deleteTicket : Listener déclenché');
     this.ticketHasBeenDeleted.emit(this.ticket);
+  }
+
+  onArchiveTicket() {
+    console.log('onArchive : Listener déclenché');
+    this.ticketHasBeenArchived.emit(this.ticket);
   }
 
   

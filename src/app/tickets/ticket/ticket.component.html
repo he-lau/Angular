@@ -14,7 +14,8 @@
   </ng-container>
 
   <div class="ticket-controls">
-    <button  id="arc-btn" type="button" name="arc-btn" (click)="archiveTicket()">Archive</button> {{ticket.archived}} &nbsp;&nbsp;&nbsp;&nbsp;
+    <button  id="arc-btn" type="button" name="arc-btn" (click)="onArchiveTicket()">Archive</button> 
+    <span [ngClass]="{'arc-true': ticket.archived === true, 'arc-false': ticket.archived === false}">{{ticket.archived}}</span> &nbsp;&nbsp;&nbsp;&nbsp;
     <button  id="del-btn" type="button" name="del-btn" (click)="onDeleteTicket()">Delete</button>
   </div>
   
