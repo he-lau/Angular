@@ -31,12 +31,24 @@ export class TicketService {
   }
 
   deleteTicket(ticket:Ticket) {      
-
     this.ticketList.forEach((element,index)=>{
       if(element==ticket) this.ticketList.splice(index,1);
-   });
-   
+   });  
     this.tickets$.next(this.ticketList);    
+  }
+
+  archiveTicket(ticket: Ticket) {
+    this.ticketList.forEach((element, index)=>{      
+      if(element == ticket) {
+        // maj statut ticket
+        ticket.archived = !ticket.archived;
+        // maj model
+        this.ticketList[index] = ticket;
+      }
+    });
+    // maj observable
+    this.tickets$.next(this.ticketList);
+    console.log('archive ticket: ', ticket);
   }
 
 

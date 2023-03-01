@@ -1,9 +1,5 @@
-<div class="card ticket" (click)="selectTicket()">
+<div class="card ticket" (click)="onSelectTicket()">
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
-
-  <div class="" (click)="deleteTicket()">
-    <i class="fas fa-calendar-times"></i>
-  </div>
   
   <h3>Titre : {{ticket.title}}</h3>
 
@@ -16,6 +12,11 @@
   <ng-container *ngIf="ticket.major === 'GE'">
     <i class="fas fa-globe-europe"></i> {{ticket.major}}
   </ng-container>
+
+  <div class="ticket-controls">
+    <button  id="arc-btn" type="button" name="arc-btn" (click)="archiveTicket()">Archive</button> {{ticket.archived}} &nbsp;&nbsp;&nbsp;&nbsp;
+    <button  id="del-btn" type="button" name="del-btn" (click)="onDeleteTicket()">Delete</button>
+  </div>
   
   
 </div>

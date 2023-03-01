@@ -24,8 +24,8 @@ export class TicketListComponent implements OnInit {
   }
 
 
-onDeleteTicket(ticket: Ticket) {
-  this.ticketService.deleteTicket(ticket);
+  ticketHasBeenDeleted(ticketHasBeenDeleted: Ticket) {
+  this.ticketService.deleteTicket(ticketHasBeenDeleted);
   /*
   const index = this.ticketList.indexOf(ticket);
   if (index > -1) {

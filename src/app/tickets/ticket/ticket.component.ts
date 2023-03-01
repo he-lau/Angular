@@ -14,6 +14,7 @@ export class TicketComponent implements OnInit {
    */
   @Input()
   ticket: Ticket;
+
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()
@@ -25,12 +26,13 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectTicket() {
+  onSelectTicket() {
+    console.log('onSelectTicket : Listener déclenché');
     this.ticketHasBeenSelected.emit(true);
   }
 
   // supprimer le ticket
-  deleteTicket() {
+  onDeleteTicket() {
     console.log('deleteTicket : Listener déclenché');
     this.ticketHasBeenDeleted.emit(this.ticket);
   }
