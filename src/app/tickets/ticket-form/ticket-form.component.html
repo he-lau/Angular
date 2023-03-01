@@ -11,6 +11,20 @@
   </label>
   <br>
 
+  <label for="student">
+    Student <br>
+    <select class="input-custom" name="sel-student" 
+      [formControlName]="'student'" 
+      (change)="onStudentChange($event.target.options.selectedIndex)">
+      <option 
+      *ngFor="let currentStudent of STUDENT_LIST" 
+      [value]="currentStudent">
+      {{ currentStudent.id }}-{{ currentStudent.lastName }}-{{ currentStudent.firstName }}
+    </option>
+    </select>
+  </label>
+  <br>
+
   <label for="major">
     Major <br>
     <select name="major-field" id="major" [formControlName]="'major'">
