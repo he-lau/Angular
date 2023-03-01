@@ -1,0 +1,15 @@
+<p>
+  student-list works!
+</p>
+
+<ul>
+  <div class="student" *ngFor="let student of studentList">
+    <!--Inputs & Output allow communication between parent & child components.-->
+    <!--More information: https://angular.io/guide/component-interaction-->      
+
+    <!-- [student] : donner l'element courant au fils (student-component)-->
+    <app-student [student]="student"></app-student>
+      
+</div>  
+  
+</ul>

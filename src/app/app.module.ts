@@ -8,6 +8,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HeaderComponent} from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 
+import { StudentsComponent } from './students/students.component';
+import { StudentComponent } from './students/student/student.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+
+import {AppRoutingModuleModule} from './app-routing-module.module';
 
 
 @NgModule({
@@ -16,12 +21,16 @@ import {HttpClientModule} from '@angular/common/http';
     TicketComponent,
     TicketFormComponent,
     TicketListComponent,
-    HeaderComponent // All the components needs to be declared
+    HeaderComponent,
+    StudentsComponent,
+    StudentComponent,
+    StudentListComponent // All the components needs to be declared
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AppRoutingModuleModule
   ],
   providers: [TicketService], // All the services need to be provided
   bootstrap: [AppComponent]
